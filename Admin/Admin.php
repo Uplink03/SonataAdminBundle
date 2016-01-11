@@ -1109,10 +1109,6 @@ abstract class Admin implements AdminInterface, DomainObjectInterface
             return $this->class;
         }
 
-        if ($this->getParentFieldDescription() && $this->hasActiveSubClass()) {
-            throw new \RuntimeException('Feature not implemented: an embedded admin cannot have subclass');
-        }
-
         $subClass = $this->getRequest()->query->get('subclass');
 
         return $this->getSubClass($subClass);
